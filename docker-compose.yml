@@ -9,8 +9,8 @@ services:
     environment:
       - PORT=3000
       - MONGODB_URI=mongodb://mongo:27017/currency_service
-      - EMAIL_USER=flagdac@gmail.com
-      - EMAIL_PASS=5708acdc
+      - EMAIL_USER=your-email@gmail.com
+      - EMAIL_PASS=your-email-password
     ports:
       - 3000:3000
     depends_on:

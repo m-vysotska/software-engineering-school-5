@@ -14,7 +14,8 @@ This service provides an API to get the current USD to UAH exchange rate and all
 1. Clone the repository.
 2. Create a `.env` file with the following variables:
 
-```PORT=3000
+```
+PORT=3000
 MONGODB_URI=mongodb://mongo:27017/currency_service
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-email-password

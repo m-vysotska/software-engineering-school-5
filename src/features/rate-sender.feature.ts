@@ -1,4 +1,4 @@
-import { nodemailer } from 'nodemailer'
+import nodemailer from 'nodemailer'
 import { GetRate } from './get-rate.feature'
 import { SubscriptionModule } from '../models/subscription.model'
 

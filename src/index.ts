@@ -1,11 +1,10 @@
-import createError from 'http-errors'
-import express from 'express'
-import { RateRouter } from './routes/rate.route'
-import { SubscriptionRouter } from './routes/subscription.route'
-import mongoose from 'mongoose'
-import './config/cronJob'
+const express = require('express')
+const { RateRouter } = require('../routes/rate.route')
+const { SubscriptionRouter } = require('../routes/subscription.route')
+const mongoose = require('mongoose')
+require('./config/cronJob')
 
-var app = express();
+const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use('/rate', RateRouter);

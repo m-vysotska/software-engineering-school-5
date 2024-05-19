@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  gsesbtcapplication:
+    image: gsesbtcapplication
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/currency_service
+      - EMAIL_USER=flagdac@gmail.com
+      - EMAIL_PASS=5708acdc
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:4.4
+    ports:
+      - "27017:27017"

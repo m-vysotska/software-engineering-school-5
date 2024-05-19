@@ -1,9 +1,8 @@
 {
   "name": "gses-btc-application",
   "version": "1.0.0",
-  "description": "gses btc /Users/mariiavysotska/Documents/OneReach/sources/provider-messenger-10dlc/.nvmrcapplication",
   "author": "Mariia Vysotska <flagdac@gmail.com>",
-  "main": "src/index.ts",
+  "main": "./index.ts",
   "scripts": {
     "start": "node ./bin/www"
   },

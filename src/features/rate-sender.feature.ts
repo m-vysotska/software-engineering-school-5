@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 import { GetRate } from './get-rate.feature'
-import { SubscriptionModule } from '../models/subscription.model'
+import { Subscription } from '../models/subscription.model'
 
 export class RateSender {
   transporter
@@ -17,7 +17,7 @@ export class RateSender {
     const getRateFeature = new GetRate()
     const rate = await getRateFeature.getRate()
 
-    const subscriptions = await SubscriptionModule.find()
+    const subscriptions = await Subscription.find()
     for (const subscription of subscriptions) {
       const mailOptions = {
         from: process.env.EMAIL_USER,

@@ -1,24 +1,26 @@
-version: '3.4'
-services:
-#########################################
-#   Setup server container
-#########################################
+version: '3.8'
 
-  src:
-    image: gsesbtcapplication
-    build: ./src
-    env_file: ./.env
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
     environment:
       - PORT=3000
-      - MONGODB_URI=mongodb://mongo:27017/currency_service
-      - EMAIL_USER=your-email@gmail.com
-      - EMAIL_PASS=your-email-password
-    ports:
-      - 3000:3000
+      - MONGODB_URI=mongodb://mongo:27017/weather_service
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASS=${EMAIL_PASS}
+      - EMAIL_FROM=${EMAIL_FROM}
     depends_on:
       - mongo
 
   mongo:
-    image: mongo:4.4
+    image: mongo:latest
     ports:
       - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data: 

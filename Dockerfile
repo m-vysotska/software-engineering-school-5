@@ -1,8 +1,24 @@
-FROM node:14
-ENV NODE_ENV=production
-WORKDIR /src
-COPY ["package.json", "package-lock.json*"]
-RUN npm install
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Copy package files
+COPY package.json pnpm-lock.yaml ./
+
+# Install dependencies
+RUN pnpm install
+
+# Copy source code
 COPY . .
-USER node
-CMD ["npm", "start"]
+
+# Build TypeScript
+RUN pnpm build
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["pnpm", "start"] 
